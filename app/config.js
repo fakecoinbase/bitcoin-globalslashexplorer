@@ -24,7 +24,7 @@ if (rpcCred.cookie && !rpcCred.username && !rpcCred.password && fs.existsSync(rp
 
 var cookieSecret = process.env.BTCEXP_COOKIE_SECRET
  || (rpcCred.password && crypto.createHmac('sha256', JSON.stringify(rpcCred))
-                               .update('btc-rpc-explorer-cookie-secret').digest('hex'))
+                               .update('btg-rpc-explorer-cookie-secret').digest('hex'))
  || "0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f";
 
 
@@ -178,7 +178,7 @@ module.exports = {
 				{
 					title:"Related Sites",
 					links:[
-						{name: "Bitcoin Explorer", url:"https://explorer.btc21.org", imgUrl:"/img/logo/btc.svg"},
+						{name: "Bitcoin Explorer", url:"https://explorer.bitcoin-global.io", imgUrl:"/img/logo/btc.svg"},
 						{name: "Testnet Explorer", url:"https://testnet.btc21.org", imgUrl:"/img/logo/tbtc.svg"},
 						{name: "LND Admin", url:"https://lnd-admin.chaintools.io", imgUrl:"/img/logo/lnd-admin.png"},
 						//{name: "Litecoin Explorer", url:"https://ltc.chaintools.io", imgUrl:"/img/logo/ltc.svg"},
@@ -217,7 +217,7 @@ module.exports = {
 	donations:{
 		addresses:{
 			coins:["BTC"],
-			sites:{"BTC":"https://explorer.btc21.org"}
+			sites:{"BTC":"https://explorer.bitcoin-global.io"}
 		},
 		btcpayserver:{
 			host:"https://donate.btc21.org",

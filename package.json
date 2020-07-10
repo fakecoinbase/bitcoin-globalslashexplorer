@@ -1,7 +1,7 @@
 {
-	"name": "btc-rpc-explorer",
+	"name": "btg-rpc-explorer",
 	"version": "2.0.2",
-	"description": "Open-source, self-hosted Bitcoin explorer",
+	"description": "Open-source, self-hosted Bitcoin Global explorer",
 	"private": false,
 	"bin": "bin/cli.js",
 	"scripts": {
@@ -17,7 +17,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/janoside/btc-rpc-explorer.git"
+		"url": "git+https://github.com/bitcoin-global/explorer.git"
 	},
 	"dependencies": {
 		"async": "^3.2.0",

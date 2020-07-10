@@ -171,16 +171,16 @@ html(lang="en")
 						dl
 							dt Source
 							dd
-								a(href="https://github.com/janoside/btc-rpc-explorer") github.com/janoside/btc-rpc-explorer
+								a(href="https://github.com/bitcoin-global/explorer") github.com/bitcoin-global/explorer
 								
 								if (global.sourcecodeProjectMetadata)
 									div.mt-2
-										a.btn.btn-primary.btn-sm.mr-3.mb-1.text-decoration-none(href="https://github.com/janoside/btc-rpc-explorer")
+										a.btn.btn-primary.btn-sm.mr-3.mb-1.text-decoration-none(href="https://github.com/bitcoin-global/explorer")
 											i.fas.fa-star.mr-2
 											span.mr-2 Star 
 											span.badge.bg-white.text-dark #{global.sourcecodeProjectMetadata.stargazers_count}
 
-										a.btn.btn-primary.btn-sm.mr-3.mb-1.text-decoration-none(href="https://github.com/janoside/btc-rpc-explorer/fork")
+										a.btn.btn-primary.btn-sm.mr-3.mb-1.text-decoration-none(href="https://github.com/bitcoin-global/explorer/fork")
 											i.fas.fa-code-branch.mr-2
 											span.mr-2 Fork 
 											span.badge.bg-white.text-dark #{global.sourcecodeProjectMetadata.forks_count}
@@ -193,7 +193,7 @@ html(lang="en")
 								if (sourcecodeVersion)
 									br
 									span commit: 
-										a(href=("https://github.com/janoside/btc-rpc-explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
+										a(href=("https://github.com/bitcoin-global/explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
 								
 								br
 								span released: #{sourcecodeDate}
@@ -207,11 +207,11 @@ html(lang="en")
 									if (coinConfig.demoSiteUrl)
 										a(href=coinConfig.demoSiteUrl) #{coinConfig.demoSiteUrl}
 									else
-										a(href="https://explorer.btc21.org") https://explorer.btc21.org
+										a(href="https://explorer.bitcoin-global.io") https://explorer.bitcoin-global.io
 									
 									div.mt-2
 										- var demoSites = [];
-										- demoSites.push({url:"https://explorer.btc21.org", logoUrl:"/img/logo/btc.svg", title:"Bitcoin Explorer"});
+										- demoSites.push({url:"https://explorer.bitcoin-global.io", logoUrl:"/img/logo/btc.svg", title:"Bitcoin Explorer"});
 										- demoSites.push({url:"https://testnet.btc21.org", logoUrl:"/img/logo/tbtc.svg", title:"Testnet Explorer"});
 
 										each demoSite in demoSites

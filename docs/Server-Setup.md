@@ -1,4 +1,4 @@
-### Setup of https://explorer.btc21.org on Ubuntu 16.04
+### Setup of https://explorer.bitcoin-global.io on Ubuntu 16.04
 
     apt update
     apt upgrade
@@ -11,14 +11,14 @@
     apt upgrade
     apt install python-certbot-nginx
     
-Copy content from [./explorer.btc21.org.conf](./explorer.btc21.org.conf) into `/etc/nginx/sites-available/explorer.btc21.org.conf`
+Copy content from [./explorer.bitcoin-global.io.conf](./explorer.bitcoin-global.io.conf) into `/etc/nginx/sites-available/explorer.bitcoin-global.io.conf`
 
-    certbot --nginx -d explorer.btc21.org
+    certbot --nginx -d explorer.bitcoin-global.io
     cd /etc/ssl/certs
     openssl dhparam -out dhparam.pem 4096
     cd /home/bitcoin
-    git clone https://github.com/janoside/btc-rpc-explorer.git
-    cd /home/bitcoin/btc-rpc-explorer
+    git clone https://github.com/bitcoin-global/explorer.git
+    cd /home/bitcoin-global/bitcoin-global-global-explorer
     npm install
     npm run build
-    pm2 start bin/www --name "btc-rpc-explorer"
+    pm2 start bin/www --name "btg-rpc-explorer"

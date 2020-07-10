@@ -7,7 +7,7 @@ var path = require('path');
 var dotenv = require("dotenv");
 var fs = require('fs');
 
-var configPaths = [ path.join(os.homedir(), '.config', 'btc-rpc-explorer.env'), path.join(process.cwd(), '.env') ];
+var configPaths = [ path.join(os.homedir(), '.config', 'btg-rpc-explorer.env'), path.join(process.cwd(), '.env') ];
 configPaths.filter(fs.existsSync).forEach(path => {
 	console.log('Loading env file:', path);
 	dotenv.config({ path });
@@ -129,7 +129,7 @@ function loadMiningPoolConfigs() {
 
 function getSourcecodeProjectMetadata() {
 	var options = {
-		url: "https://api.github.com/repos/janoside/btc-rpc-explorer",
+		url: "https://api.github.com/repos/bitcoin-global/explorer",
 		headers: {
 			'User-Agent': 'request'
 		}
@@ -246,7 +246,7 @@ function onRpcConnectionVerified(getnetworkinfo, getblockchaininfo) {
 		// short-circuit: force all RPC calls to pass their version checks - this will likely lead to errors / instability / unexpected results
 		global.btcNodeSemver = "1000.1000.0"
 
-		debugErrorLog(`Unable to parse node version string: ${getnetworkinfo.subversion} - RPC versioning will likely be unreliable. Is your node a version of Bitcoin Core?`);
+		debugErrorLog(`Unable to parse node version string: ${getnetworkinfo.subversion} - RPC versioning will likely be unreliable. Is your node a version of Bitcoin Global?`);
 	}
 	
 	debugLog(`RPC Connected: version=${getnetworkinfo.version} subversion=${getnetworkinfo.subversion}, parsedVersion(used for RPC versioning)=${global.btcNodeSemver}, protocolversion=${getnetworkinfo.protocolversion}, chain=${getblockchaininfo.chain}, services=${services}`);
