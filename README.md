@@ -2,10 +2,7 @@
 
 ![homepage](https://github.com/bitcoin-global/explorer/blob/master/public/img/screenshots/homepage.png?raw=true)
 
-
-Simple, database-free Bitcoin Global blockchain explorer, via RPC to [Bitcoin Global](https://github.com/bitcoin-global/bitcoin-global). It is a fork of [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer) with minor modifications to adapt it to Bitcoin Global.     
-
-This is a simple, self-hosted explorer for the Bitcoin Global blockchain, driven by RPC calls to your own [Bitcoin](https://github.com/bitcoin-global/bitcoin-global) node. It is easy to run and can be connected to other tools (like [ElectrumX](https://github.com/spesmilo/electrumx)) to achieve a full-featured explorer.
+Simple, database-free Bitcoin Global blockchain explorer, driven by RPC calls to your own [Bitglobal](https://github.com/bitcoin-global/bitcoin-global) node. It is easy to run and can be connected to other tools (like [ElectrumX](https://github.com/spesmilo/electrumx)) to achieve a full-featured explorer.      
 
 Whatever reasons one may have for running a full node (trustlessness, technical curiosity, supporting the network, etc) it's helpful to appreciate the "fullness" of your node. With this explorer, you can explore not just the blockchain database, but also explore the functional capabilities of your own node.
 
@@ -67,4 +64,5 @@ For configuring with CLI arguments, run `./bin/cli.js--help` for the full list o
 See [instructions here](docs/nginx-reverse-proxy.md) for using nginx+certbot (letsencrypt) for an HTTPS-accessible, reverse-proxied site.
 
 # Support
-Please consider supporting [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer). 
+`Note:` This is a fork of [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer) with minor modifications to support Bitcoin Global blockchain.     
+Please consider supporting the original work at [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer). 
