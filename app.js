@@ -7,7 +7,7 @@ var path = require('path');
 var dotenv = require("dotenv");
 var fs = require('fs');
 
-var configPaths = [ path.join(os.homedir(), '.config', 'btg-rpc-explorer.env'), path.join(process.cwd(), '.env') ];
+var configPaths = [ path.join(os.homedir(), '.config', 'glob-rpc-explorer.env'), path.join(process.cwd(), '.env') ];
 configPaths.filter(fs.existsSync).forEach(path => {
 	console.log('Loading env file:', path);
 	dotenv.config({ path });
@@ -72,9 +72,9 @@ app.engine('pug', (path, options, fn) => {
 app.set('view engine', 'pug');
 
 // basic http authentication
-if (process.env.BTCEXP_BASIC_AUTH_PASSWORD) {
+if (process.env.BGEXP_BASIC_AUTH_PASSWORD) {
 	app.disable('x-powered-by');
-	app.use(auth(process.env.BTCEXP_BASIC_AUTH_PASSWORD));
+	app.use(auth(process.env.BGEXP_BASIC_AUTH_PASSWORD));
 }
 
 // uncomment after placing your favicon in /public
@@ -362,7 +362,7 @@ function refreshNetworkVolumes() {
 				debugLog(`Network volume: ${JSON.stringify(global.networkVolume)}`);
 
 			} else {
-				debugLog("Unable to load network volume, likely due to bitcoind version older than 0.17.0 (the first version to support getblockstats).");
+				debugLog("Unable to load network volume, likely due to bitglobd version older than 0.17.0 (the first version to support getblockstats).");
 			}
 		});
 	});
@@ -440,7 +440,7 @@ app.continueStartup = function() {
 	if (config.addressApi) {
 		var supportedAddressApis = addressApi.getSupportedAddressApis();
 		if (!supportedAddressApis.includes(config.addressApi)) {
-			utils.logError("32907ghsd0ge", `Unrecognized value for BTCEXP_ADDRESS_API: '${config.addressApi}'. Valid options are: ${supportedAddressApis}`);
+			utils.logError("32907ghsd0ge", `Unrecognized value for BGEXP_ADDRESS_API: '${config.addressApi}'. Valid options are: ${supportedAddressApis}`);
 		}
 
 		if (config.addressApi == "electrumx") {
@@ -452,7 +452,7 @@ app.continueStartup = function() {
 					utils.logError("31207ugf4e0fed", err, {electrumXServers:config.electrumXServers});
 				});
 			} else {
-				utils.logError("327hs0gde", "You must set the 'BTCEXP_ELECTRUMX_SERVERS' environment variable when BTCEXP_ADDRESS_API=electrumx.");
+				utils.logError("327hs0gde", "You must set the 'BGEXP_ELECTRUMX_SERVERS' environment variable when BGEXP_ADDRESS_API=electrumx.");
 			}
 		}
 	}

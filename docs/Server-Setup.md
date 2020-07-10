@@ -21,4 +21,4 @@ Copy content from [./explorer.bitcoin-global.io.conf](./explorer.bitcoin-global.
     cd /home/bitcoin-global/bitcoin-global-global-explorer
     npm install
     npm run build
-    pm2 start bin/www --name "btg-rpc-explorer"
+    pm2 start bin/www --name "glob-rpc-explorer"

@@ -22,7 +22,7 @@ A clear and concise description of what the bug is.
 
 Please include the content from the following files. **BE SURE TO MODIFY YOUR CREDENTIALS BEFORE SUBMITTING!!!**
  - bitcoin.conf
- - Your btg-rpc-explorer environment configuration (either `$WORKING_DIR/.env` or `~/.config/btg-rpc-explorer.env`)
+ - Your glob-rpc-explorer environment configuration (either `$WORKING_DIR/.env` or `~/.config/glob-rpc-explorer.env`)
 
 **To Reproduce**
 

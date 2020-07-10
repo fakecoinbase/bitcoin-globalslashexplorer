@@ -8,7 +8,7 @@ var url = require('url');
 var coins = require("./coins.js");
 var credentials = require("./credentials.js");
 
-var currentCoin = process.env.BTCEXP_COIN || "BTC";
+var currentCoin = process.env.BGEXP_COIN || "BG";
 
 var rpcCred = credentials.rpc;
 
@@ -22,13 +22,13 @@ if (rpcCred.cookie && !rpcCred.username && !rpcCred.password && fs.existsSync(rp
 	}
 }
 
-var cookieSecret = process.env.BTCEXP_COOKIE_SECRET
+var cookieSecret = process.env.BGEXP_COOKIE_SECRET
  || (rpcCred.password && crypto.createHmac('sha256', JSON.stringify(rpcCred))
-                               .update('btg-rpc-explorer-cookie-secret').digest('hex'))
+                               .update('glob-rpc-explorer-cookie-secret').digest('hex'))
  || "0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f";
 
 
-var electrumXServerUriStrings = (process.env.BTCEXP_ELECTRUMX_SERVERS || "").split(',').filter(Boolean);
+var electrumXServerUriStrings = (process.env.BGEXP_ELECTRUMX_SERVERS || "").split(',').filter(Boolean);
 var electrumXServers = [];
 for (var i = 0; i < electrumXServerUriStrings.length; i++) {
 	var uri = url.parse(electrumXServerUriStrings[i]);
@@ -38,10 +38,10 @@ for (var i = 0; i < electrumXServerUriStrings.length; i++) {
 
 // default=false env vars
 [
-	"BTCEXP_DEMO",
-	"BTCEXP_PRIVACY_MODE",
-	"BTCEXP_NO_INMEMORY_RPC_CACHE",
-	"BTCEXP_RPC_ALLOWALL"
+	"BGEXP_DEMO",
+	"BGEXP_PRIVACY_MODE",
+	"BGEXP_NO_INMEMORY_RPC_CACHE",
+	"BGEXP_RPC_ALLOWALL"
 
 ].forEach(function(item) {
 	if (process.env[item] === undefined) {
@@ -54,9 +54,9 @@ for (var i = 0; i < electrumXServerUriStrings.length; i++) {
 
 // default=true env vars
 [
-	"BTCEXP_NO_RATES",
-	"BTCEXP_UI_SHOW_TOOLS_SUBHEADER",
-	"BTCEXP_SLOW_DEVICE_MODE"
+	"BGEXP_NO_RATES",
+	"BGEXP_UI_SHOW_TOOLS_SUBHEADER",
+	"BGEXP_SLOW_DEVICE_MODE"
 
 ].forEach(function(item) {
 	if (process.env[item] === undefined) {
@@ -71,17 +71,17 @@ module.exports = {
 
 	cookieSecret: cookieSecret,
 
-	privacyMode: (process.env.BTCEXP_PRIVACY_MODE.toLowerCase() == "true"),
-	slowDeviceMode: (process.env.BTCEXP_SLOW_DEVICE_MODE.toLowerCase() == "true"),
-	demoSite: (process.env.BTCEXP_DEMO.toLowerCase() == "true"),
-	queryExchangeRates: (process.env.BTCEXP_NO_RATES.toLowerCase() != "true"),
-	noInmemoryRpcCache: (process.env.BTCEXP_NO_INMEMORY_RPC_CACHE.toLowerCase() == "true"),
+	privacyMode: (process.env.BGEXP_PRIVACY_MODE.toLowerCase() == "true"),
+	slowDeviceMode: (process.env.BGEXP_SLOW_DEVICE_MODE.toLowerCase() == "true"),
+	demoSite: (process.env.BGEXP_DEMO.toLowerCase() == "true"),
+	queryExchangeRates: (process.env.BGEXP_NO_RATES.toLowerCase() != "true"),
+	noInmemoryRpcCache: (process.env.BGEXP_NO_INMEMORY_RPC_CACHE.toLowerCase() == "true"),
 	
-	rpcConcurrency: (process.env.BTCEXP_RPC_CONCURRENCY || 10),
+	rpcConcurrency: (process.env.BGEXP_RPC_CONCURRENCY || 10),
 
 	rpcBlacklist:
-	  process.env.BTCEXP_RPC_ALLOWALL.toLowerCase() == "true"  ? []
-	: process.env.BTCEXP_RPC_BLACKLIST ? process.env.BTCEXP_RPC_BLACKLIST.split(',').filter(Boolean)
+	  process.env.BGEXP_RPC_ALLOWALL.toLowerCase() == "true"  ? []
+	: process.env.BGEXP_RPC_BLACKLIST ? process.env.BGEXP_RPC_BLACKLIST.split(',').filter(Boolean)
 	: [
 		"addnode",
 		"backupwallet",
@@ -155,10 +155,10 @@ module.exports = {
 		"walletpassphrasechange",
 	],
 
-	addressApi:process.env.BTCEXP_ADDRESS_API,
+	addressApi:process.env.BGEXP_ADDRESS_API,
 	electrumXServers:electrumXServers,
 
-	redisUrl:process.env.BTCEXP_REDIS_URL,
+	redisUrl:process.env.BGEXP_REDIS_URL,
 
 	site: {
 		homepage:{
@@ -173,16 +173,13 @@ module.exports = {
 		},
 		valueDisplayMaxLargeDigits: 4,
 		header:{
-			showToolsSubheader:(process.env.BTCEXP_UI_SHOW_TOOLS_SUBHEADER == "true"),
+			showToolsSubheader:(process.env.BGEXP_UI_SHOW_TOOLS_SUBHEADER == "true"),
 			dropdowns:[
 				{
 					title:"Related Sites",
 					links:[
-						{name: "Bitcoin Explorer", url:"https://explorer.bitcoin-global.io", imgUrl:"/img/logo/btc.svg"},
-						{name: "Testnet Explorer", url:"https://testnet.btc21.org", imgUrl:"/img/logo/tbtc.svg"},
-						{name: "LND Admin", url:"https://lnd-admin.chaintools.io", imgUrl:"/img/logo/lnd-admin.png"},
-						//{name: "Litecoin Explorer", url:"https://ltc.chaintools.io", imgUrl:"/img/logo/ltc.svg"},
-						//{name: "Lightning Explorer", url:"https://lightning.chaintools.io", imgUrl:"/img/logo/lightning.svg"},
+						{name: "Bitcoin Global", url:"https://explorer.bitcoin-global.io", imgUrl:"/img/logo/bg.svg"},
+						{name: "Bitcoin Global Testnet", url:"https://testnet.btc21.org", imgUrl:"/img/logo/tbg.svg"},
 					]
 				}
 			]
@@ -216,14 +213,8 @@ module.exports = {
 
 	donations:{
 		addresses:{
-			coins:["BTC"],
-			sites:{"BTC":"https://explorer.bitcoin-global.io"}
-		},
-		btcpayserver:{
-			host:"https://donate.btc21.org",
-			storeId:"26k74KRh7RYmJcMDqvmdKTb2h3991FMTZSM4GJHnX6st",
-			notifyEmail:"chaintools.io@gmail.com",
-			customAmountUrl: "https://donate.btc21.org/apps/2TBP2GuQnYXGBiHQkmf4jNuMh6eN/pos"
+			coins:["BG"],
+			sites:{"BG":"https://explorer.bitcoin-global.io"}
 		}
 	}
 };

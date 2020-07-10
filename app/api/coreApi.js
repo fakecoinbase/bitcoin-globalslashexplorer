@@ -122,7 +122,7 @@ if (redisCache.active) {
 	}
 
 	// md5 of the active RPC credentials serves as part of the key; this enables
-	// multiple instances of btg-rpc-explorer (eg mainnet + testnet) to share
+	// multiple instances of glob-rpc-explorer (eg mainnet + testnet) to share
 	// a single redis instance peacefully
 	var rpcHostPort = `${config.credentials.rpc.host}:${config.credentials.rpc.port}`;
 	var rpcCredKeyComponent = md5(JSON.stringify(config.credentials.rpc)).substring(0, 8);
