@@ -178,8 +178,8 @@ module.exports = {
 				{
 					title:"Related Sites",
 					links:[
-						{name: "Bitcoin Global", url:"https://explorer.bitcoin-global.io", imgUrl:"/img/logo/bg.svg"},
-						{name: "Bitcoin Global Testnet", url:"https://testnet.btc21.org", imgUrl:"/img/logo/tbg.svg"},
+						{name: "Bitcoin Global", url:"https://mainnet.bitcoin-global.io", imgUrl:"/img/logo/bg.png"},
+						{name: "Bitcoin Global Testnet", url:"https://testnet.bitcoin-global.io", imgUrl:"/img/logo/tbg.png"},
 					]
 				}
 			]

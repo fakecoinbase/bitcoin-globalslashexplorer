@@ -50,7 +50,7 @@ var currencyUnits = [
 ];
 
 module.exports = {
-	name:"Bitcoin",
+	name:"Bitcoin Global",
 	ticker:"BG",
 	logoUrlsByNetwork:{
 		"main":"/img/logo/bg.png",
